@@ -28,9 +28,9 @@ class _WebViewAppState extends State<WebViewApp> {
   Widget build(BuildContext context) {
     return WillPopScope(
         onWillPop: () async {
-          Navigator.pop(context);
-          Navigator.pop(context);
-          return false;
+            Navigator.pop(context);
+            Navigator.pop(context);
+            return false;
         },
         child: Scaffold(
           appBar: AppBar(

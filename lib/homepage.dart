@@ -18,7 +18,6 @@ class HomePage extends StatelessWidget {
               fontStyle: FontStyle.normal,
               fontWeight: FontWeight.bold,
               fontSize: 25.0,
-              color: Colors.black,
             ),
           ),
           ElevatedButton(
