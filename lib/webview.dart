@@ -1,6 +1,4 @@
-
 import 'package:biller_link/homepage.dart';
-import 'package:biller_link/qrscan.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -28,16 +26,23 @@ class _WebViewAppState extends State<WebViewApp> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('QRCode URL'),
-        leading: BackButton(onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const HomePage(),
-              ))),
-      ),
-      body: WebViewWidget(
-        controller: controller,
-      ),
-    );
+    return WillPopScope(
+        onWillPop: () async {
+          Navigator.pop(context);
+          Navigator.pop(context);
+          return false;
+        },
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text('QRCode URL'),
+            leading: BackButton(
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const HomePage(),
+                    ))),
+          ),
+          body: WebViewWidget(
+            controller: controller,
+          ),
+        ));
   }
 }
