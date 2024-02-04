@@ -10,10 +10,10 @@ class ThemeClass {
       elevatedButtonTheme: ElevatedButtonThemeData(style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.blue))));
 
   static ThemeData darkTheme = ThemeData(
-      scaffoldBackgroundColor: Colors.black,
+      scaffoldBackgroundColor: const Color.fromARGB(255, 39, 40, 41),
       colorScheme: const ColorScheme.dark(),
       appBarTheme: const AppBarTheme(
-        backgroundColor: Colors.black,
+        backgroundColor: Color.fromARGB(255, 97, 103, 122),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(style: ButtonStyle(backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255,235,235,242)))));
 }

@@ -1,3 +1,4 @@
+import 'package:biller_link/sharedvar.dart';
 import 'package:flutter/material.dart';
 
 import 'qrscan.dart';
@@ -8,6 +9,24 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        
+        actions: [
+          IconButton(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
+            // padding: const EdgeInsets.symmetric(horizontal: 0.0, vertical: 0.0),
+            icon: sharedStorage.read("sessionSignature") != "" ? Icon(
+              Icons.account_circle
+            ) : Icon(
+              Icons.login
+            ),
+            tooltip: 'Open shopping cart',
+            onPressed: () {
+              // handle the press
+            },
+          ),
+        ],
+      ),
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           const Text(

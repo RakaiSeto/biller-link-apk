@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
+import 'popup.dart';
 import 'sharedvar.dart';
 import 'webview.dart';
 
@@ -145,15 +146,24 @@ class _ScanQRState extends State<ScanQR> {
     });
     controller.scannedDataStream.listen((scanData) {
       controller.pauseCamera();
-    //   _launchURL(scanData.code.toString());
-	 setState(() {
-	   result = scanData;
-	 });
-	  Navigator.push(
-		context,
-		MaterialPageRoute(builder: (context) => const WebViewApp())
-		// MaterialPageRoute(builder: (context) => WebViewApp(initUrl: scanData.code.toString()))
-	  );
+      //   _launchURL(scanData.code.toString());
+      setState(() {
+        result = scanData;
+      });
+      debugPrint(Uri.parse(result!.code.toString()).host.isNotEmpty.toString());
+      debugPrint(Uri.parse(result!.code.toString()).host.toString());
+      if (Uri.parse(result!.code.toString()).host.isNotEmpty) {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => const WebViewApp())
+            // MaterialPageRoute(builder: (context) => WebViewApp(initUrl: scanData.code.toString()))
+            );
+      } else {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) =>
+              buildPopupDialog(context, 'QRCode does not contain valid URL'),
+        );
+      }
     });
   }
 

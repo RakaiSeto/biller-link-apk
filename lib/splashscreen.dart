@@ -1,25 +1,8 @@
 import 'dart:async';
 
-import 'color.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'homepage.dart';
-
-class MyApp extends ConsumerWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return MaterialApp(
-      home: const SplashScreen(),
-      themeMode:ThemeMode.system,
-      theme: ThemeClass.lightTheme,
-      darkTheme: ThemeClass.darkTheme,
-      debugShowCheckedModeBanner: false,
-    );
-  }
-}
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
